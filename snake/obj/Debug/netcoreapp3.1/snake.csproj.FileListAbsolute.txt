@@ -1,0 +1,14 @@
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\bin\Debug\netcoreapp3.1\snake.exe
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\bin\Debug\netcoreapp3.1\snake.deps.json
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\bin\Debug\netcoreapp3.1\snake.runtimeconfig.json
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\bin\Debug\netcoreapp3.1\snake.runtimeconfig.dev.json
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\bin\Debug\netcoreapp3.1\snake.dll
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\bin\Debug\netcoreapp3.1\snake.pdb
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.csproj.AssemblyReference.cache
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.AssemblyInfoInputs.cache
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.AssemblyInfo.cs
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.csproj.CoreCompileInputs.cache
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.dll
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.pdb
+C:\Users\Chimi\Desktop\PB SEM V\KCK\snake\snake\obj\Debug\netcoreapp3.1\snake.genruntimeconfig.cache
