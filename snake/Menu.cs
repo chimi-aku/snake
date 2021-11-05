@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using static System.Console;
+using System.Threading;
 
 namespace snake
 {
@@ -53,22 +54,25 @@ namespace snake
             {
                 Clear();
                 displayOptions();
+                bool isKeyDown = false;
 
                 ConsoleKeyInfo keyInfo = ReadKey(true);
                 keyPressed = keyInfo.Key;
+                Thread.Sleep(100);
 
                 // Update selectedIndex based on arrow keys.
-                if(keyPressed == ConsoleKey.UpArrow)
+                if(keyPressed == ConsoleKey.UpArrow && !isKeyDown)
                 {
+                    isKeyDown = true;
                     selectedIndex--;
                     if (selectedIndex == -1) selectedIndex = options.Length - 1;
                 }
-                else if(keyPressed == ConsoleKey.DownArrow)
+                else if(keyPressed == ConsoleKey.DownArrow && !isKeyDown)
                 {
+                    isKeyDown = true;
                     selectedIndex++;
                     if (selectedIndex == options.Length) selectedIndex = 0;
                 }
-
                 
             }
             while (keyPressed != ConsoleKey.Enter);

@@ -54,6 +54,10 @@ Welcome to snake game. Have fun!
         private void startGame()
         {
             WriteLine("Game is running...");
+
+            Board canvas = new Board();
+            canvas.drawBoard();
+
             exitGame();
         }
 
@@ -67,7 +71,7 @@ Welcome to snake game. Have fun!
 
         private void exitGame()
         {
-            WriteLine("\nPress any key to exit...");
+            WriteLine("\n\nPress any key to exit...");
             ReadKey(true);
             Environment.Exit(0);
         }
