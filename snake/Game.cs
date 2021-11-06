@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using static System.Console;
+using System.Threading;
 
 namespace snake
 {
@@ -54,11 +55,36 @@ Welcome to snake game. Have fun!
         private void startGame()
         {
             WriteLine("Game is running...");
+            Console.Clear();
 
-            Board canvas = new Board();
-            canvas.drawBoard();
+            Walls walls = new Walls(80, 25);
+            walls.draw();
 
-            exitGame();
+            Point p = new Point(4, 6, '*');
+            Snake snake = new Snake(p, 5, Direction.RIGHT);
+            snake.draw();
+
+            while(true)
+            {
+                if (walls.isHit(snake) || snake.isHitTail())
+                {
+                    break;
+                }
+
+                snake.move();
+
+
+                Thread.Sleep(100);
+
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.handleKey(key.Key);
+                }
+            }
+
+            Console.ReadLine();
+            //exitGame();
         }
 
         private void displayInfoAboutGame()
