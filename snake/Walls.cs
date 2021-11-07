@@ -46,3 +46,6 @@ namespace snake
         }
     }
 }
+
+
+/* drawing corners ┌ └ ┐ ┘*/

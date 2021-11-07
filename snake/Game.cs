@@ -18,6 +18,8 @@ namespace snake
 
         private void runMainMenu()
         {
+            Console.CursorVisible = false;
+
             string prompt = @"
 
   ██████  ███▄    █  ▄▄▄       ██ ▄█▀▓█████ 
@@ -54,6 +56,8 @@ Welcome to snake game. Have fun!
 
         private void startGame()
         {
+            
+
             WriteLine("Game is running...");
             Console.Clear();
 
@@ -64,6 +68,11 @@ Welcome to snake game. Have fun!
             Snake snake = new Snake(p, 5, Direction.RIGHT);
             snake.draw();
 
+            // creating first fruit
+            FoodCreator foodCreator = new FoodCreator(80, 25, 'O');
+            Point food = foodCreator.createFood();
+            food.draw();
+
             while(true)
             {
                 if (walls.isHit(snake) || snake.isHitTail())
@@ -71,7 +80,15 @@ Welcome to snake game. Have fun!
                     break;
                 }
 
-                snake.move();
+                if (snake.eat(food))
+                {
+                    food = foodCreator.createFood();
+                    food.draw();
+                }
+                else
+                {
+                    snake.move();
+                }
 
 
                 Thread.Sleep(100);
