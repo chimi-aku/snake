@@ -32,35 +32,20 @@ namespace snake
                 if (i == selectedIndex)
                 {
                     prefix = "*";
-
-                    if (textColor == TextColor.WHITE)
-                        ForegroundColor = ConsoleColor.White;
-                    else if (textColor == TextColor.GREEN)
-                        ForegroundColor = ConsoleColor.Green;
-                    else if (textColor == TextColor.BLUE)
-                       ForegroundColor = ConsoleColor.Blue;
-
-
-                    BackgroundColor = ConsoleColor.White;
+                    setColorFocused();
                 }
                 else
                 {
                     prefix = " ";
-
-                    if (textColor == TextColor.WHITE)
-                        ForegroundColor = ConsoleColor.White;
-                    else if (textColor == TextColor.GREEN)
-                        ForegroundColor = ConsoleColor.Green;
-                    else if (textColor == TextColor.BLUE)
-                        ForegroundColor = ConsoleColor.Blue;
-
-                    BackgroundColor = ConsoleColor.Black;
+                    setColorUnfocused();
                 }
 
                 WriteLine($"{prefix} << {currentOption} >>");
             }
 
-            //ResetColor();
+            // Reseting colors (prevents errors)
+            setColorFocused();
+            setColorUnfocused();
         }
 
         public int run()
@@ -96,5 +81,30 @@ namespace snake
 
             return selectedIndex;
         }
+
+        private void setColorFocused()
+        {
+            if (textColor == TextColor.WHITE)
+                ForegroundColor = ConsoleColor.Black;
+            else if (textColor == TextColor.GREEN)
+                ForegroundColor = ConsoleColor.Green;
+            else if (textColor == TextColor.BLUE)
+                ForegroundColor = ConsoleColor.Blue;
+
+            BackgroundColor = ConsoleColor.White;
+        }
+
+        private void setColorUnfocused()
+        {
+            if (textColor == TextColor.WHITE)
+                ForegroundColor = ConsoleColor.White;
+            else if (textColor == TextColor.GREEN)
+                ForegroundColor = ConsoleColor.Green;
+            else if (textColor == TextColor.BLUE)
+                ForegroundColor = ConsoleColor.Blue;
+
+            BackgroundColor = ConsoleColor.Black;
+        }
+
     }
 }

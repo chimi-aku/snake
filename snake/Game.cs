@@ -8,7 +8,7 @@ namespace snake
 {
     class Game
     {
-        TextColor textColor;
+        TextColor textColor = TextColor.WHITE;
 
 
         public void Start()
@@ -24,11 +24,11 @@ namespace snake
             Console.CursorVisible = false;
 
             if (textColor == TextColor.WHITE)
-                Console.ForegroundColor = ConsoleColor.White;
+                ForegroundColor = ConsoleColor.White;
             else if (textColor == TextColor.GREEN) 
-                Console.ForegroundColor = ConsoleColor.Green;
+                ForegroundColor = ConsoleColor.Green;
             else if (textColor == TextColor.BLUE)
-                Console.ForegroundColor = ConsoleColor.Blue;
+                ForegroundColor = ConsoleColor.Blue;
 
             string prompt = @"
 
@@ -199,6 +199,7 @@ Change text color!
 
             runSettingsMenu();
         }
+
 
         private void displayInfoAboutGame()
         {
