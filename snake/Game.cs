@@ -8,6 +8,9 @@ namespace snake
 {
     class Game
     {
+        TextColor textColor;
+
+
         public void Start()
         {
             runMainMenu();
@@ -19,6 +22,13 @@ namespace snake
         private void runMainMenu()
         {
             Console.CursorVisible = false;
+
+            if (textColor == TextColor.WHITE)
+                Console.ForegroundColor = ConsoleColor.White;
+            else if (textColor == TextColor.GREEN) 
+                Console.ForegroundColor = ConsoleColor.Green;
+            else if (textColor == TextColor.BLUE)
+                Console.ForegroundColor = ConsoleColor.Blue;
 
             string prompt = @"
 
@@ -35,8 +45,8 @@ namespace snake
 
 Welcome to snake game. Have fun!
 (Use arrow keys to choose options.)";
-            string[] options = { "Play", "About", "Exit" };
-            Menu mainMenu = new Menu(prompt, options);
+            string[] options = { "Play", "Options", "About", "Exit" };
+            Menu mainMenu = new Menu(prompt, options, textColor);
             int selectedIndex = mainMenu.run();
 
             switch (selectedIndex)
@@ -45,9 +55,12 @@ Welcome to snake game. Have fun!
                     startGame();
                     break;
                 case 1:
-                    displayInfoAboutGame();
+                    runSettingsMenu();
                     break;
                 case 2:
+                    displayInfoAboutGame();
+                    break;
+                case 3:
                     exitGame();
                     break;
             }
@@ -100,8 +113,91 @@ Welcome to snake game. Have fun!
                 }
             }
 
+            WriteGameOver();
             Console.ReadLine();
-            //exitGame();
+            runMainMenu();
+        }
+
+        private void runSettingsMenu()
+        {
+            Clear();
+
+            string prompt = @"
+
+  ██████  ███▄    █  ▄▄▄       ██ ▄█▀▓█████ 
+▒██    ▒  ██ ▀█   █ ▒████▄     ██▄█▒ ▓█   ▀ 
+░ ▓██▄   ▓██  ▀█ ██▒▒██  ▀█▄  ▓███▄░ ▒███   
+  ▒   ██▒▓██▒  █ ██▒░██▄▄▄▄██ ▓██ █▄ ▒▓█  ▄ 
+▒██████▒▒▒██░   ▓██░ ▓█   ▓██▒▒██▒ █▄░▒████▒
+▒ ▒▓▒ ▒ ░░ ▒░   ▒ ▒  ▒▒   ▓▒█░▒ ▒▒ ▓▒░░ ▒░ ░
+░ ░▒  ░ ░░ ░░   ░ ▒░  ▒   ▒▒ ░░ ░▒ ▒░ ░ ░  ░
+░  ░  ░     ░   ░ ░   ░   ▒   ░ ░░ ░    ░   
+      ░           ░       ░  ░░  ░      ░  ░
+                                            
+
+Change your game experience!
+(Use arrow keys to choose options.)";
+            String[] options = { "Text Color", "Back" };
+            Menu settingsMenu = new Menu(prompt, options, textColor);
+            int selectedIndex = settingsMenu.run();
+
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    changeTextColor();
+                    break;
+                case 1:
+                    runMainMenu();
+                    break;
+            }
+
+        }
+
+        private void changeTextColor()
+        {
+            Clear();
+
+            string prompt = @"
+
+  ██████  ███▄    █  ▄▄▄       ██ ▄█▀▓█████ 
+▒██    ▒  ██ ▀█   █ ▒████▄     ██▄█▒ ▓█   ▀ 
+░ ▓██▄   ▓██  ▀█ ██▒▒██  ▀█▄  ▓███▄░ ▒███   
+  ▒   ██▒▓██▒  █ ██▒░██▄▄▄▄██ ▓██ █▄ ▒▓█  ▄ 
+▒██████▒▒▒██░   ▓██░ ▓█   ▓██▒▒██▒ █▄░▒████▒
+▒ ▒▓▒ ▒ ░░ ▒░   ▒ ▒  ▒▒   ▓▒█░▒ ▒▒ ▓▒░░ ▒░ ░
+░ ░▒  ░ ░░ ░░   ░ ▒░  ▒   ▒▒ ░░ ░▒ ▒░ ░ ░  ░
+░  ░  ░     ░   ░ ░   ░   ▒   ░ ░░ ░    ░   
+      ░           ░       ░  ░░  ░      ░  ░
+                                            
+
+Change text color!
+(Use arrow keys to choose options.)";
+            String[] options = { "White", "Green", "Blue", "Back" };
+            Menu settingsMenu = new Menu(prompt, options, textColor);
+            int selectedIndex = settingsMenu.run();
+
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    textColor = TextColor.WHITE;
+                    break;
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    textColor = TextColor.GREEN;
+                    break;
+                case 2:
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    textColor = TextColor.BLUE;
+                    break;
+                case 3:
+                    runMainMenu();
+                    break;
+            }
+
+            runSettingsMenu();
         }
 
         private void displayInfoAboutGame()
@@ -114,9 +210,16 @@ Welcome to snake game. Have fun!
 
         private void exitGame()
         {
-            WriteLine("\n\nPress any key to exit...");
-            ReadKey(true);
+            //WriteLine("\n\nPress any key to exit...");
+            //ReadKey(true);
             Environment.Exit(0);
+        }
+
+        static void WriteGameOver()
+        {
+            Console.SetCursorPosition(17, 12);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("You lose :( . Press 'enter' to return to main menu.");
         }
     }
 }

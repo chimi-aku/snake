@@ -11,11 +11,13 @@ namespace snake
         private int selectedIndex;
         private string[] options;
         private string prompt;
+        private TextColor textColor; // text color
 
-        public Menu(string prompt, string[] options)
+        public Menu(string prompt, string[] options, TextColor textColor)
         {
             this.prompt = prompt;
             this.options = options;
+            this.textColor = textColor;
             this.selectedIndex = 0;
         }
 
@@ -30,20 +32,35 @@ namespace snake
                 if (i == selectedIndex)
                 {
                     prefix = "*";
-                    ForegroundColor = ConsoleColor.Black;
+
+                    if (textColor == TextColor.WHITE)
+                        ForegroundColor = ConsoleColor.White;
+                    else if (textColor == TextColor.GREEN)
+                        ForegroundColor = ConsoleColor.Green;
+                    else if (textColor == TextColor.BLUE)
+                       ForegroundColor = ConsoleColor.Blue;
+
+
                     BackgroundColor = ConsoleColor.White;
                 }
                 else
                 {
                     prefix = " ";
-                    ForegroundColor = ConsoleColor.White;
+
+                    if (textColor == TextColor.WHITE)
+                        ForegroundColor = ConsoleColor.White;
+                    else if (textColor == TextColor.GREEN)
+                        ForegroundColor = ConsoleColor.Green;
+                    else if (textColor == TextColor.BLUE)
+                        ForegroundColor = ConsoleColor.Blue;
+
                     BackgroundColor = ConsoleColor.Black;
                 }
 
                 WriteLine($"{prefix} << {currentOption} >>");
             }
 
-            ResetColor();
+            //ResetColor();
         }
 
         public int run()
