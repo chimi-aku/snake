@@ -44,7 +44,7 @@ namespace snake
                                             
 
 Welcome to snake game. Have fun!
-(Use arrow keys to choose options.)";
+(Use arrow keys to choose options and playing.)";
             string[] options = { "Play", "Options", "About", "Exit" };
             Menu mainMenu = new Menu(prompt, options, textColor);
             int selectedIndex = mainMenu.run();
@@ -110,6 +110,7 @@ Welcome to snake game. Have fun!
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.handleKey(key.Key);
+
                 }
             }
 

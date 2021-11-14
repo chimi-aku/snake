@@ -56,6 +56,7 @@ namespace snake
 
         public void handleKey(ConsoleKey key)
         {
+
             if (key == ConsoleKey.LeftArrow && direction != Direction.RIGHT)
             {
                 direction = Direction.LEFT;
