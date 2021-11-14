@@ -204,9 +204,63 @@ Change text color!
         private void displayInfoAboutGame()
         {
             Clear();
+            WriteLine("Game Created by Łukasz Terpiłowski");
+            WriteLine("UUps tou touched Newton's pendulum. Whait a sec...");
+            MultiLineAnimation();
+            SetCursorPosition(0, 9);
             WriteLine("Press any key to return to the main menu...");
             ReadKey(true);
             runMainMenu();
+        }
+
+        static void MultiLineAnimation()
+        {
+            var counter = 0;
+            for (int i = 0; i < 12; i++)
+            {
+                
+
+                SetCursorPosition(0, 4);
+
+                switch (counter % 4)
+                {
+                    case 0:
+                        {
+                            Console.WriteLine("╔════╤╤╤╤════╗");
+                            Console.WriteLine("║    │││ \\   ║");
+                            Console.WriteLine("║    │││  O  ║");
+                            Console.WriteLine("║    OOO     ║");
+                            break;
+                        };
+                    case 1:
+                        {
+                            Console.WriteLine("╔════╤╤╤╤════╗");
+                            Console.WriteLine("║    ││││    ║");
+                            Console.WriteLine("║    ││││    ║");
+                            Console.WriteLine("║    OOOO    ║");
+                            break;
+                        };
+                    case 2:
+                        {
+                            Console.WriteLine("╔════╤╤╤╤════╗");
+                            Console.WriteLine("║   / │││    ║");
+                            Console.WriteLine("║  O  │││    ║");
+                            Console.WriteLine("║     OOO    ║");
+                            break;
+                        };
+                    case 3:
+                        {
+                            Console.WriteLine("╔════╤╤╤╤════╗");
+                            Console.WriteLine("║    ││││    ║");
+                            Console.WriteLine("║    ││││    ║");
+                            Console.WriteLine("║    OOOO    ║");
+                            break;
+                        };
+                }
+
+                counter++;
+                Thread.Sleep(100);
+            }
         }
 
         private void exitGame()

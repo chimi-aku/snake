@@ -60,7 +60,7 @@ namespace snake
 
                 ConsoleKeyInfo keyInfo = ReadKey(true);
                 keyPressed = keyInfo.Key;
-                Thread.Sleep(100);
+                Thread.Sleep(50);
 
                 // Update selectedIndex based on arrow keys.
                 if(keyPressed == ConsoleKey.UpArrow && !isKeyDown)
@@ -75,6 +75,7 @@ namespace snake
                     selectedIndex++;
                     if (selectedIndex == options.Length) selectedIndex = 0;
                 }
+
                 
             }
             while (keyPressed != ConsoleKey.Enter);
@@ -105,6 +106,7 @@ namespace snake
 
             BackgroundColor = ConsoleColor.Black;
         }
+
 
     }
 }
